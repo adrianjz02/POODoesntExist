@@ -1,9 +1,25 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-require_once 'rooter.php';
+<head>
+    <meta charset="UTF-8">
+</head>
 
-$router = new rooter('contact.html');
+<body>
 
-// Exécuter le routeur
-$router->run();
-?>
+    <?php
+
+    require_once 'Routeur.php';
+
+    // Récupérez l'URL demandée
+    $pageDemandee = isset($_SERVER['PATH_INFO']) ? ltrim($_SERVER['PATH_INFO'], '/') : '';
+    $pageDemandee = "contact";
+    // Utilisation de la classe Routeur avec une instance
+    $routeur = new Routeur($pageDemandee);
+    $routeur->route();
+
+    ?>
+
+</body>
+
+</html>
