@@ -1,12 +1,12 @@
 <?php
 
-// Inclure la définition de la classe Router ici ou dans un fichier séparé
+require_once 'root.php'; // Assurez-vous que le nom du fichier est correct.
 
 $router = new Router();
 
 // Ajouter des routes
 $router->add('', function () {
-    require __DIR__ . '/index.html';
+    require __DIR__ . '/contact.html';
 });
 
 $router->add('contact', function () {
@@ -17,5 +17,4 @@ $router->add('contact', function () {
 
 // Exécuter le routeur
 $router->run();
-
 ?>
