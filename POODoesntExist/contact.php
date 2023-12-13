@@ -18,9 +18,11 @@
     <header class="header">
         <h1>Mon Site Web</h1>
         <nav>
-            <a href="#home">Accueil</a> |
-            <a href="#contact">Contact</a> |
-            <a href="#about">À Propos</a>
+            <nav>
+                <a href="index.php?page=accueil">Accueil</a> |
+                <a href="index.php?page=contact">Contact</a> |
+            </nav>
+
         </nav>
     </header>
 
