@@ -7,7 +7,7 @@ class ContactController {
         $ville = $_POST['ville'] ?? '';
         $age = $_POST['age'] ?? 0;
 
-        $this->envoyerEmail($nom, $email, $message);
+        // $this->envoyerEmail($nom, $email, $message);
     }
 
     // Exemple de fonction pour envoyer un email (à compléter)
