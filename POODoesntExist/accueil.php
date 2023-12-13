@@ -16,9 +16,6 @@
         </ul>
     </nav>
     <main>
-        <section>
-            <h2>Section 1</h2>
-            <p>Ceci est le contenu de la section 1.</p>
-        </section>
-        <section>
+</body>
+</html>
         
