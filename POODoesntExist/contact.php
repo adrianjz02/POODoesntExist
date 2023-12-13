@@ -32,31 +32,31 @@
             <form>
                 <div class="form-group">
                     <label for="nom">Nom</label>
-                    <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom">
+                    <input type="text" class="form-control" name="nom" id="nom" placeholder="Entrez votre nom">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Entrez votre email">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea class="form-control" id="message" rows="3"></textarea>
+                    <textarea class="form-control" name="message" id="message" rows="3"></textarea>
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="ville">Ville</label>
-                    <input type="text" class="form-control" id="ville" placeholder="Votre ville">
+                    <input type="text" class="form-control" name="ville" id="ville" placeholder="Votre ville">
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="age">Âge</label>
-                    <input type="number" class="form-control" id="age" placeholder="Votre âge">
+                    <input type="number" class="form-control" name="age" id="age" placeholder="Votre âge">
                 </div>
                 <br>
 
