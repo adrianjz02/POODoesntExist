@@ -11,11 +11,17 @@
 
     require_once 'Routeur.php';
 
-    // Récupérez l'URL demandée
-    $pageDemandee = isset($_SERVER['PATH_INFO']) ? ltrim($_SERVER['PATH_INFO'], '/') : '';
-    $pageDemandee = "contact";
-    // Utilisation de la classe Routeur avec une instance
-    $routeur = new Routeur($pageDemandee);
+    // Utilisation du routeur
+    $routeur = new Routeur($_GET['page'] ?? 'default');
+
+    $routeur->addRoute('contact', function () {
+        include 'contact.php';
+    });
+
+    $routeur->addRoute('accueil', function () {
+        include 'accueil.php';
+    });
+
     $routeur->route();
 
     ?>
