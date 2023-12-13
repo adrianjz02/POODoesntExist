@@ -23,17 +23,7 @@
         include 'accueil.php';
     });
 
-
     $contactController = new ContactController();
-
-// Define routes
-$routeur->addRoute('contact', function() use ($contactController) {
-    $contactController->showContactForm();
-});
-
-$routeur->addRoute('contact/submit', function() use ($contactController) {
-    $contactController->create();
-});
 
 
     $routeur->route();
