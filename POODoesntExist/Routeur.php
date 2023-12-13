@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-
-<head>
-    <meta charset="UTF-8">
-</head>
-
-<body>
-
 <?php
 
 class Routeur {
@@ -32,7 +24,3 @@ class Routeur {
 }
 
 ?>
-
-</body>
-
-</html>
