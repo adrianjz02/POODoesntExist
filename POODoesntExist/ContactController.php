@@ -1,21 +1,45 @@
-<?php
-class ContactController {
-    public function traiterFormulaire() {
-        $nom = $_POST['nom'] ?? '';
-        $email = $_POST['email'] ?? '';
-        $message = $_POST['message'] ?? '';
-        $ville = $_POST['ville'] ?? '';
-        $age = $_POST['age'] ?? 0;
+<!DOCTYPE html>
+<html lang="en">
 
-        $this->envoyerEmail($nom, $email, $message);
-    }
+<head>
+    <meta charset="UTF-8">
+</head>
 
-    // Exemple de fonction pour envoyer un email (à compléter)
-    private function envoyerEmail($nom, $email, $message) {
-        // Code pour envoyer un email
-    }
-}
+<body>
 
-// Créer une instance du contrôleur et appeler la fonction de traitement
-$controller = new ContactController();
-$controller->traiterFormulaire();
+    <?php
+
+    require_once 'Routeur.php';
+    require_once 'ContactController.php';
+
+    // Utilisation du routeur
+    $routeur = new Routeur($_GET['page'] ?? 'default');
+
+    $routeur->addRoute('contact', function () {
+        include 'contact.php';
+    });
+
+    $routeur->addRoute('accueil', function () {
+        include 'accueil.php';
+    });
+
+
+    $contactController = new ContactController();
+
+// Define routes
+$routeur->addRoute('contact', function() use ($contactController) {
+    $contactController->showContactForm();
+});
+
+$routeur->addRoute('contact/submit', function() use ($contactController) {
+    $contactController->create();
+});
+
+
+    $routeur->route();
+
+    ?>
+
+</body>
+
+</html>
