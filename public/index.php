@@ -1,22 +1,13 @@
 <?php
+// http://localhost/PooDoesntExist/?page=post&action=create
 
-require_once 'Routeur.php';
-require_once 'ContactController.php';
+require_once '../vendor/autoload.php';
 
-// Utilisation du routeur
-$routeur = new Routeur($_GET['page'] ?? 'default');
+use App\Router;
 
-$routeur->addRoute('contact', function () {
-    include 'contact.php';
-});
+$router = new Router();
 
-$routeur->addRoute('accueil', function () {
-    include 'accueil.php';
-});
+$router->addRoute('contact', 'AccueilController');
+$router->addRoute('accueil', 'ContactController');
 
-$contactController = new ContactController();
-// $contactController->read();
-
-$routeur->route();
-
-?>
+$router->matchRoute($_GET['page'], $_GET['action'] ?? null);

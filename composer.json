@@ -1,5 +1,5 @@
 {
-    "name": "yhammououali/miage-training",
+    "name": "adrji/poo-doesnt-exist",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -8,8 +8,8 @@
     },
     "authors": [
         {   
-            "name": "Yassin Hammou Ouali",
-            "email": "y.hammououali@gmail.com"
+            "name": "Adrian Jimenez",
+            "email": "adr.jimenez.ian@gmail.com"
         }
     ],
     "require": {
