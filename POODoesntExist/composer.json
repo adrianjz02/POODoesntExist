@@ -1,0 +1,16 @@
+{
+    "name": "adrji/poo-doesnt-exist",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Adrji\\PooDoesntExist\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Adrian",
+            "email": "adr.jimenez.ian@gmail.com"
+        }
+    ],
+    "require": {}
+}
