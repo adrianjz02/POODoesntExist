@@ -27,7 +27,7 @@
     </header>
 
     <main>
-        <section class="container mt-4" align="center">
+        <section align="center">
             <h2>Formulaire de Contact</h2>
             <form action="/PooDoesntExist/?page=contact&action=read" method = "post">
                 <div class="form-group">
