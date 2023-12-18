@@ -29,7 +29,7 @@
     <main>
         <section class="container mt-4" align="center">
             <h2>Formulaire de Contact</h2>
-            <form action="/POODoesntExist/contact.php&action=read" method="get">
+            <form action="/PooDoesntExist/?page=contact&action=read" method = "post">
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" name="nom" id="nom" placeholder="Entrez votre nom">

@@ -1,7 +1,5 @@
 <?php
 
-namespace App;
-
 class Routeur
 {
     private $page;
