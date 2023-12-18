@@ -8,8 +8,11 @@
     },
     "authors": [
         {
-            "name": "Adrian",
-            "email": "adr.jimenez.ian@gmail.com"
+            "name": "Adrian", 
+            "email": "adr.jimenez.ian@gmail.com",
+
+            "name": "makroy12",
+            "email": "jaloupe@gmail.com"
         }
     ],
     "require": {}

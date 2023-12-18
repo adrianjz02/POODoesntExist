@@ -3,21 +3,23 @@ class ContactController
 {
     public function traiterFormulaire()
     {
-        $nom = $_POST['nom'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
-        $ville = $_POST['ville'];
-        $age = $_POST['age'];
+        $nom = $_POST['nom'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $message = $_POST['message'] ?? '';
+        $ville = $_POST['ville'] ?? '';
+        $age = $_POST['age'] ?? 0;
 
         $this->envoyerEmail($nom, $email, $message);
     }
 
+
     private function envoyerEmail($nom, $email, $message)
+
     {
 
     }
-    public function read()
-    {
+    public function read(){
+    echo'caca et pipi';
 
     }
 

@@ -23,8 +23,8 @@
         include 'accueil.php';
     });
 
-    $contactController = new ContactController();
 
+    $contactController = new ContactController();
 
     $routeur->route();
 
