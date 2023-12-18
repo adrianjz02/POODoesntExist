@@ -22,7 +22,6 @@ $controller->traiterFormulaire();
 
 
 
-<?php
 
 require_once 'Model.php'; // Assuming a Model class is available
 
@@ -68,3 +67,5 @@ class ContactController {
         include 'contact.php';
     }
 }
+
+?>
