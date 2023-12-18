@@ -1,0 +1,16 @@
+{
+    "name": "jalou/poo-doesnt-exist",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "makroy12",
+            "email": "jaloupe@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -10,27 +10,22 @@ class ContactController
         $age = $_POST['age'] ?? 0;
 
         $this->envoyerEmail($nom, $email, $message);
+        $this->read($nom, $email, $message, $ville, $age); // Ajout pour appeler read()
     }
-
 
     private function envoyerEmail($nom, $email, $message)
-
     {
-
-    }
-    public function read(){
-    echo'caca et pipi';
-
+        // Code pour envoyer l'email
     }
 
-    public function update()
+    public function read($nom, $email, $message, $ville, $age)
     {
-
-    }
-
-    public function delete()
-    {
-
+        // Afficher les données reçues
+        echo "Nom: " . htmlspecialchars($nom) . "<br>";
+        echo "Email: " . htmlspecialchars($email) . "<br>";
+        echo "Message: " . htmlspecialchars($message) . "<br>";
+        echo "Ville: " . htmlspecialchars($ville) . "<br>";
+        echo "Âge: " . htmlspecialchars($age) . "<br>";
     }
 
     public function showContactForm()
@@ -38,9 +33,10 @@ class ContactController
         include 'contact.php';
     }
 }
-
-// Créer une instance du contrôleur et appeler la fonction de traitement
 $controller = new ContactController();
 $controller->traiterFormulaire();
+
+?>
+ontroller->traiterFormulaire();
 
 ?>
