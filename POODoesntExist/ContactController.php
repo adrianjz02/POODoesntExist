@@ -13,6 +13,7 @@ class ContactController
     }
 
     // Exemple de fonction pour envoyer un email (à compléter)
+
     private function envoyerEmail($nom, $email, $message)
     {
         // Code pour envoyer un email
