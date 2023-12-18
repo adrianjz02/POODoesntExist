@@ -1,18 +1,39 @@
 <?php
-class ContactController {
-    public function traiterFormulaire() {
-        $nom = $_POST['nom'] ?? '';
-        $email = $_POST['email'] ?? '';
-        $message = $_POST['message'] ?? '';
-        $ville = $_POST['ville'] ?? '';
-        $age = $_POST['age'] ?? 0;
+class ContactController
+{
+    public function traiterFormulaire()
+    {
+        $nom = $_POST['nom'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+        $ville = $_POST['ville'];
+        $age = $_POST['age'];
 
         $this->envoyerEmail($nom, $email, $message);
     }
 
-    // Exemple de fonction pour envoyer un email (à compléter)
-    private function envoyerEmail($nom, $email, $message) {
-    // Code pour envoyer un email
+    private function envoyerEmail($nom, $email, $message)
+    {
+
+    }
+    public function read()
+    {
+
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+
+    }
+
+    public function showContactForm()
+    {
+        include 'contact.php';
     }
 }
 
@@ -20,6 +41,7 @@ class ContactController {
 $controller = new ContactController();
 $controller->traiterFormulaire();
 
+<<<<<<< HEAD:POODoesntExist/src/Controller/ContactController.php
 
 
 
@@ -68,4 +90,6 @@ class ContactController {
     }
 }
 
+=======
+>>>>>>> 592d4a696844e8a1ad8c46fb1d8fca2d1378533c:POODoesntExist/ContactController.php
 ?>
