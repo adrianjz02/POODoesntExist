@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html lang="fr">
 
 <head>
@@ -24,11 +25,15 @@
 
         </nav>
     </header>
+=======
+{% extends 'base.html.twig'%}
+>>>>>>> 750062a5ca5dac7b693b893bc4925d19a1625ee3
 
+{% block body %}
     <main>
         <section align="center">
             <h2>Formulaire de Contact</h2>
-            <form method = "post">
+            <form method="post" action="index.php?page=contact&action=create">
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" name="nom" id="nom" placeholder="Entrez votre nom">
@@ -63,10 +68,4 @@
             </form>
         </section>
     </main>
-
-    <footer class="footer">
-        <p>&copy; 2023 Mon Site Web. Tous droits réservés.</p>
-    </footer>
-</body>
-
-</html>
+{% endblock %}
