@@ -15,14 +15,14 @@ final class PostController extends BaseController
     public function create()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Extract and sanitize data from POST request
+
             $nom = htmlspecialchars($_POST['nom'] ?? '');
             $email = htmlspecialchars($_POST['email'] ?? '');
             $message = htmlspecialchars($_POST['message'] ?? '');
             $ville = htmlspecialchars($_POST['ville'] ?? '');
             $age = htmlspecialchars($_POST['age'] ?? '');
 
-            // Render a new Twig page with the submitted data
+
             echo $this->render('post/detail.html.twig', [
                 'nom' => $nom,
                 'email' => $email,

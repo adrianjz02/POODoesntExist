@@ -1,16 +1,90 @@
-<header class="header">
-    <style>
-        .header {
-            background-color: #f1f1f1;
-            padding: 20px;
-            text-align: center;
-        }
-        /* Add any additional styles specific to the header here */
-    </style>
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Double Header Example</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+			}
+			.top-header,
+			.bottom-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px 20px;
+			}
+			.top-header {
+				background-color: #f3f3f3;
+				border-bottom: 1px solid #dcdcdc;
+			}
+			.bottom-header {
+				background-color: #ffffff;
+			}
+			.logo {
+				font-size: 24px;
+				font-weight: bold;
+				color: #333;
+			}
+			.logo img {
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+			.nav {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.nav li {
+				display: inline;
+				margin-right: 20px;
+			}
+			.nav li a {
+				text-decoration: none;
+				color: #333;
+			}
+			.login-signup {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.login-signup li {
+				display: inline;
+				margin-right: 10px;
+			}
+			.login-signup li a {
+				text-decoration: none;
+				color: #333;
+				border: 1px solid #333;
+				padding: 5px 10px;
+				border-radius: 5px;
+			}
+			.search-box {
+				border: 1px solid #dcdcdc;
+				padding: 5px 10px;
+				border-radius: 5px;
+			}
+		</style>
+	</head>
+	<body>
 
-    <h1>Mon Site Web</h1>
-    <nav>
-        <a href="http://localhost/POODoesntExist/index.php?page=accueil&action=show">Accueil</a> |
-        <a href="index.php?page=contact&action=create">Contact</a> |
-    </nav>
-</header>
+		<div class="top-header">
+			<nav>
+				<ul class="nav">
+					<a href="http://localhost/POODoesntExist/index.php?page=accueil&action=show">Accueil</a>
+					|
+					<a href="index.php?page=contact&action=create">Contact</a>
+				</ul>
+			</nav>
+			<div class="login-signup">
+				<ul>
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Sign up</a></li>
+				</ul>
+			</div>
+		</div>
+
+
+	</body>
+</html>

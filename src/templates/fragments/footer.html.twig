@@ -1,10 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer Example</title>
+<style>
+    .footer {
+        background-color: #333;
+        color: #aaa;
+        text-align: center;
+        padding: 20px 0;
+        font-family: Arial, sans-serif;
+    }
+    .footer-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 10px; /* Espacement avant la ligne de copyright */
+    }
+    .footer-nav li {
+        display: inline;
+        margin: 0 10px;
+    }
+    .footer-nav a {
+        color: #aaa;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .footer-nav a:hover {
+        color: #fff;
+    }
+    .footer-line {
+        border-bottom: 1px solid #444;
+        margin-bottom: 10px;
+    }
+    .copyright {
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+
 <footer class="footer">
-    <style>
-        .footer {
-            background-color: #f1f1f1;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
-    <p>&copy; 2023 Mon Site Web. Tous droits réservés.</p>
+    <div class="footer-line"></div>
+    <ul class="footer-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <div class="copyright">
+        © 2023 Company, Inc
+    </div>
 </footer>
+
+</body>
+</html>
