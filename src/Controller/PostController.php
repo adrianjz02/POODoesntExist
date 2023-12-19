@@ -1,6 +1,6 @@
 <?php
 // PDO
-// ouvrir une connexion avec la bdd
+// ouvrir une connexion avec la bdd (PDO)
 // faire un try catch pour tester si la bdd est bien connecté
 // créer la base de donnée et la table
 // tout ça dans phpmyadmin
