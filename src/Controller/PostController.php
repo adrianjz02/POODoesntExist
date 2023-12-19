@@ -31,9 +31,20 @@ final class PostController extends BaseController
                 'age' => $age
             ]);
         } else {
-        echo $this->render('post/create.html.twig', []);
+            echo $this->render('post/create.html.twig', []);
         }
     }
+
+    public function listEnum()
+    {
+        $data = [
+            'data1' => ['nom' => 'Jimenez', 'prenom' => 'Adrian', 'email' => 'adr@', 'adresse' => '12 rue ...'],
+            'data2' => ['nom' => 'Kim', 'prenom' => 'Seohno', 'email' => 'kim@', 'adresse' => '13 rue ...'],
+            'data3' => ['nom' => 'Sagna', 'prenom' => 'Maké', 'email' => 'maké@', 'adresse' => '14 rue ...'],
+        ];
+
+        echo $this->render('post/liste.html.twig', ['data' => $data]);
+    } // <-- méthode dans le controller
 
     public function read()
     {

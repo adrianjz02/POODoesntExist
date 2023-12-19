@@ -1,0 +1,28 @@
+{# listEnum.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main>
+        <h2>Liste des Données</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Adresse</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, item in data %}
+                    <tr>
+                        <td>{{ item.nom }}</td>
+                        <td>{{ item.prenom }}</td>
+                        <td>{{ item.email }}</td>
+                        <td>{{ item.adresse }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+{% endblock %}
