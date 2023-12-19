@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Controller\AccueilController;
+use App\Controller\ContactController;
 use App\Controller\PostController;
 
 final class Router
@@ -10,7 +12,8 @@ final class Router
 
     public function __construct()
     {
-        $this->addRoute('cgv', 'GeneralConditionsController');
+        $this->addRoute('accueil', 'App\\Controller\\AccueilController');
+        $this->addRoute('contact', 'App\\Controller\\PostController');
     }
 
     public function addRoute(string $name, string $controller): void
@@ -18,31 +21,29 @@ final class Router
         $this->routes[$name] = $controller;
     }
 
-    public function matchRoute(string $name, ?string $action): bool
+    public function matchRoute(?string $name, ?string $action = 'show'): bool
     {
         try {
-            if (!$action) {
-                throw new \Exception("Il y a besoin d'une action controller !");
-            }
-
-            $controller = null;
+            $name = $name ?? 'accueil'; // Default to 'accueil' if no page is set
 
             if (key_exists($name, $this->routes)) {
-                $controller = $this->routes[$name];
+                $controllerClass = $this->routes[$name];
+            } else {
+                throw new \Exception("Page not found: $name");
             }
 
-            if (!file_exists(__DIR__ . "/Controller/{$controller}.php")) {
-                throw new \Exception(sprintf("Le fichier %s n'existe pas ", "{$controller}.php"));
+            if (!class_exists($controllerClass)) {
+                throw new \Exception("Controller not found: $controllerClass");
             }
 
-            $controller = new PostController();
-
+            $controller = new $controllerClass();
             if (!method_exists($controller, $action)) {
-                throw new \Exception(sprintf("L'action %s n'est pas dans %s!", $action, $controller));
+                throw new \Exception("Action $action not found in $controllerClass");
             }
 
             $controller->$action();
         } catch (\Exception $exception) {
+            // Handle exceptions, e.g., show a 404 page or error message
             var_dump($exception->getMessage());
         }
 
