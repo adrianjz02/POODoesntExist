@@ -1,0 +1,28 @@
+{# listeBDD.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<main>
+		<h2>Liste des Utilisateurs</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Email</th>
+					<th>Ville</th>
+					<th>Âge</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for utilisateur in utilisateurs %}
+					<tr>
+						<td>{{ utilisateur.getName() }}</td>
+						<td>{{ utilisateur.getEmail() }}</td>
+						<td>{{ utilisateur.getCity() }}</td>
+						<td>{{ utilisateur.getAge() }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</main>
+{% endblock %}
