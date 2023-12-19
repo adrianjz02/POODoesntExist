@@ -1,5 +1,12 @@
 <?php
-
+// PDO
+// ouvrir une connexion avec la bdd
+// faire un try catch pour tester si la bdd est bien connecté
+// créer la base de donnée et la table
+// tout ça dans phpmyadmin
+// on créé l'objet
+// on créé le repository
+// on reprend le formulaire et les données qu'on reçoit on les envoit dans la bdd
 namespace App\Controller;
 
 use App\Controller\BaseController;
@@ -44,7 +51,7 @@ final class PostController extends BaseController
         ];
 
         echo $this->render('post/liste.html.twig', ['data' => $data]);
-    } // <-- méthode dans le controller
+    }
 
     public function read()
     {
