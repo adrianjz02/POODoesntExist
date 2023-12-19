@@ -1,10 +1,5 @@
 <?php
-<<<<<<< HEAD
 // http://localhost/PooDoesntExist/?page=accueil
-=======
-// CONTROLEUR FRONTAL
-// http://localhost/PooDoesntExist/?page=post&action=create
->>>>>>> b2329ae7c59e32758061a4909d76f6bc43f37950
 
 require_once '../vendor/autoload.php';
 
