@@ -1,5 +1,4 @@
 <?php
-// http://localhost/PooDoesntExist/?page=accueil
 
 require_once '../vendor/autoload.php';
 
