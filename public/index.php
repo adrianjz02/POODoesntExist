@@ -1,4 +1,5 @@
 <?php
+// CONTROLEUR FRONTAL
 // http://localhost/PooDoesntExist/?page=post&action=create
 
 require_once '../vendor/autoload.php';
