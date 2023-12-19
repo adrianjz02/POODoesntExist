@@ -1,15 +1,59 @@
 <html>
-    <head>
-    
-    </head>
+	<head>
+		<style>
+			main {
+				font-family: 'Arial', sans-serif;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+			}
 
-    <body>
-        {% include 'fragments/header.html.twig' %}
+			h2 {
+				color: #333;
+				margin-bottom: 20px;
+				text-align: center;
+			}
 
-        <main>
-            {% block body %}{% endblock %}
-        </main>
-        
-        {% include 'fragments/footer.html.twig' %}
-    </body>
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-bottom: 20px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+
+			th,
+			td {
+				text-align: left;
+				padding: 12px;
+				border-bottom: 1px solid #ddd;
+			}
+
+			th {
+				background-color: #f8f9fa;
+				color: #333;
+			}
+
+			td {
+				background-color: #ffffff;
+			}
+
+			tr:nth-child(even) {
+				background-color: #f2f2f2;
+			}
+
+			tr:hover {
+				background-color: #ddd;
+			}
+		</style>
+	</head>
+
+	<body>
+		{% include 'fragments/header.html.twig' %}
+
+		<main>
+			{% block body %}{% endblock %}
+		</main>
+
+		{% include 'fragments/footer.html.twig' %}
+	</body>
 </html>
