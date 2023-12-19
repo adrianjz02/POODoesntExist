@@ -2,11 +2,28 @@
 
 {% block body %}
     <main>
-        <h2>Details de l'utilisateur</h2>
-        <p>Nom: {{ nom }}</p>
-        <p>Email: {{ email }}</p>
-        <p>Message: {{ message }}</p>
-        <p>Ville: {{ ville }}</p>
-        <p>Âge: {{ age }}</p>
-    </main>
+    <h2>Details de l'utilisateur</h2>
+    <table>
+        <tr>
+            <th>Nom:</th>
+            <td>{{ nom }}</td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td>{{ email }}</td>
+        </tr>
+        <tr>
+            <th>Message:</th>
+            <td>{{ message }}</td>
+        </tr>
+        <tr>
+            <th>Ville:</th>
+            <td>{{ ville }}</td>
+        </tr>
+        <tr>
+            <th>Âge:</th>
+            <td>{{ age }}</td>
+        </tr>
+    </table>
+</main>
 {% endblock %}
