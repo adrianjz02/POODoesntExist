@@ -1,6 +1,6 @@
 <?php
-
-require_once 'path/to/CommandeRepository.php'; // Mettez à jour avec le chemin correct vers votre CommandeRepository
+use App\Database\Commande;
+use App\Database\CommandeRepository;
 
 class CommandeController
 {
