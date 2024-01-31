@@ -1,61 +1,55 @@
 <?php
-use App\Database\Commande;
-use App\Database\CommandeRepository;
 
-class CommandeController
+namespace App\Controller;
+
+use App\Database\DatabaseConnection;
+use App\Database\CommandeRepository;
+use App\Database\Commande;
+
+require_once __DIR__ . '/../DataBase/DataBaseConnection.php';
+require_once __DIR__ . '/../DataBase/CommandeRepository.php';
+
+use App\Controller\BaseController;
+
+final class CommandeController extends BaseController
 {
-    private $commandeRepository;
+    private CommandeRepository $commandeRepository;
 
     public function __construct()
     {
-        // Initialisez votre connexion PDO ici, et passez-la à votre CommandeRepository
-        $pdo = new PDO('mysql:host=your_host;dbname=your_db', 'username', 'password'); // Mettez à jour avec vos propres informations de connexion
-        $this->commandeRepository = new CommandeRepository($pdo);
+        $dbConnection = new DatabaseConnection();
+        $connexion = $dbConnection->openConnection();
+        $this->commandeRepository = new CommandeRepository($connexion);
     }
 
-    public function liste()
+    public function list(): array
     {
-        // Récupérer toutes les commandes avec les détails de l'utilisateur
-        $commandes = $this->commandeRepository->findAllWithUserDetails();
-        include 'path/to/listeCommandes.php'; // Mettez à jour avec le chemin correct vers votre template listeCommandes
+        // Retournez une liste de commandes à partir de la base de données
+        return $this->commandeRepository->findAll();
     }
 
     public function create()
     {
-        // Afficher le formulaire de création de commande
-        $this->render('commande/createCommande.html.twig');
-    }
-
-    public function store()
-    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $numeroCommande = $_POST['numeroCommande'] ?? '';
-            $utilisateurId = $_POST['utilisateurId'] ?? 0;
+            // Assurez-vous de valider et de nettoyer les entrées
+            $numeroCommande = htmlspecialchars($_POST['numeroCommande'] ?? '');
+            $utilisateurId = htmlspecialchars($_POST['utilisateurId'] ?? '');
 
-            // Valider les données ici si nécessaire
-
-            // Créer l'objet Commande et sauvegarder la commande
+            // Créez une instance de Commande
             $commande = new Commande(null, $numeroCommande, $utilisateurId);
+
+            // Utilisez CommandeRepository pour sauvegarder la nouvelle commande
             $this->commandeRepository->save($commande);
 
-            // Rediriger vers la page des commandes ou afficher un message de succès
-            // $this->redirect('/chemin_vers_la_page_de_succes');
-            // Ou afficher un message
-            // echo "Commande enregistrée avec succès!";
+            // Après avoir enregistré, redirigez vers la liste des commandes ou affichez un message de succès
+            echo $this->render('commande/success.html.twig', [
+                'numeroCommande' => $numeroCommande
+            ]);
         } else {
-            // Si ce n'est pas une requête POST, rediriger vers le formulaire de création
-            $this->redirect('/chemin_vers_le_formulaire_de_creation');
+            // Si ce n'est pas une requête POST, affichez simplement le formulaire
+            echo $this->render('commande/create.html.twig', []);
         }
     }
 
-    public function redirect($url)
-    {
-        // Rediriger vers l'URL spécifiée
-        header("Location: $url");
-        exit;
-    }
+   
 }
-
-// Utilisation du contrôleur
-$commandeController = new CommandeController();
-$commandeController->liste();
