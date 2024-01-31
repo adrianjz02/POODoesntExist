@@ -1,0 +1,15 @@
+{# templates/commande/createCommande.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Passer une Commande</h2>
+    <form action="{{ path('commande_create') }}" method="post">
+        <label for="numeroCommande">Numéro de Commande:</label><br>
+        <input type="text" id="numeroCommande" name="numeroCommande" required><br>
+
+        <label for="utilisateurId">ID Utilisateur:</label><br>
+        <input type="number" id="utilisateurId" name="utilisateurId" required><br><br>
+
+        <input type="submit" value="Soumettre">
+    </form>
+{% endblock %}
