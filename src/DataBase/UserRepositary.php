@@ -16,8 +16,6 @@ class UserRepository
         if ($user->getId() === null) {
             $stmt = $this->pdo->prepare("INSERT INTO utilisateurs (nom, mail, ville, age) VALUES (?, ?, ?, ?)");
             $stmt->execute([$user->getName(), $user->getEmail(), $user->getCity(), $user->getAge()]);
-        } else {
-
         }
     }
 
@@ -57,8 +55,6 @@ class UserRepository
         $stmt = $this->pdo->prepare("DELETE FROM utilisateurs WHERE id = ?");
         $stmt->execute([$id]);
     }
-
-
 
 }
 
