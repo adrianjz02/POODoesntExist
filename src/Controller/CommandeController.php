@@ -41,13 +41,13 @@ final class CommandeController extends BaseController
             // Utilisez CommandeRepository pour sauvegarder la nouvelle commande
             $this->commandeRepository->save($commande);
 
-            // Après avoir enregistré, redirigez vers la liste des commandes ou affichez un message de succès
-            echo $this->render('commande/success.html.twig', [
+            // Après avoir enregistré, renvoie vers la page d'accueil
+            echo $this->render('post/createaccueil.html.twig', [
                 'numeroCommande' => $numeroCommande
             ]);
         } else {
-            // Si ce n'est pas une requête POST, affichez simplement le formulaire
-            echo $this->render('commande/create.html.twig', []);
+            // Si ce n'est pas une requête POST, renvoie vers la page d'accueil
+            echo $this->render('post/createaccueil.html.twig', []);
         }
     }
 
