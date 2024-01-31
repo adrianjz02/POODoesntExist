@@ -15,6 +15,7 @@ class CommandeController
 
     public function liste()
     {
+        // Récupérer toutes les commandes avec les détails de l'utilisateur
         $commandes = $this->commandeRepository->findAllWithUserDetails();
         include 'path/to/listeCommandes.php'; // Mettez à jour avec le chemin correct vers votre template listeCommandes
     }
@@ -49,6 +50,7 @@ class CommandeController
 
     public function redirect($url)
     {
+        // Rediriger vers l'URL spécifiée
         header("Location: $url");
         exit;
     }

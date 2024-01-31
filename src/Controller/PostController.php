@@ -4,9 +4,9 @@
 // faire un try catch pour tester si la bdd est bien connecté
 // créer la base de donnée et la table
 // tout ça dans phpmyadmin
-// on créé l'objet
-// on créé le repository
-// on reprend le formulaire et les données qu'on reçoit on les envoit dans la bdd
+// on crée l'objet
+// on crée le repository
+// on reprend le formulaire et les données qu'on reçoit on les envoie dans la bdd
 
 namespace App\Controller;
 
@@ -38,7 +38,6 @@ final class PostController extends BaseController
             $ville = htmlspecialchars($_POST['ville'] ?? '');
             $age = htmlspecialchars($_POST['age'] ?? '');
 
-
             // Créez une instance de PDO et UserRepositary
             $dbConnection = new DataBaseConnection();
             $connexion = $dbConnection->openConnection();
@@ -63,8 +62,6 @@ final class PostController extends BaseController
         }
     }
 
-
-
     public function listEnum()
     {
         $data = [
@@ -86,7 +83,6 @@ final class PostController extends BaseController
         $utilisateurs = $userRepository->findAll();
         echo $this->render('post/listebdd.html.twig', ['utilisateurs' => $utilisateurs]);
     }
-
 
     public function read()
     {
@@ -132,7 +128,6 @@ final class PostController extends BaseController
         }
     }
 
-
     public function delete($id)
     {
         $dbConnection = new DataBaseConnection();
@@ -154,5 +149,4 @@ final class PostController extends BaseController
             exit();
         }
     }
-
 }

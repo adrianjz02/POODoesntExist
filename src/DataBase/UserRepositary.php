@@ -11,6 +11,7 @@ class UserRepository
         $this->pdo = $pdo;
     }
 
+    // Enregistre un utilisateur dans la base de données
     public function save(User $user)
     {
         if ($user->getId() === null) {
@@ -19,6 +20,7 @@ class UserRepository
         }
     }
 
+    // Récupère tous les utilisateurs de la base de données
     public function findAll()
     {
         $stmt = $this->pdo->prepare("SELECT * FROM utilisateurs");
@@ -32,7 +34,7 @@ class UserRepository
         return $users;
     }
 
-
+    // Récupère un utilisateur par son identifiant
     public function findById($id)
     {
         $stmt = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE id = ?");
@@ -44,12 +46,14 @@ class UserRepository
         return null;
     }
 
+    // Met à jour les informations d'un utilisateur dans la base de données
     public function update(User $user)
     {
         $stmt = $this->pdo->prepare("UPDATE utilisateurs SET nom = ?, mail = ?, ville = ?, age = ? WHERE id = ?");
         $stmt->execute([$user->getName(), $user->getEmail(), $user->getCity(), $user->getAge(), $user->getId()]);
     }
 
+    // Supprime un utilisateur de la base de données par son identifiant
     public function delete($id)
     {
         $stmt = $this->pdo->prepare("DELETE FROM utilisateurs WHERE id = ?");
@@ -57,4 +61,3 @@ class UserRepository
     }
 
 }
-
