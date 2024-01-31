@@ -46,6 +46,18 @@ class CommandeRepository {
         $stmt = $this->pdo->prepare("DELETE FROM commandes WHERE id = ?");
         $stmt->execute([$id]);
     }
+
+
+    public function findAllWithUserDetails() {
+        $stmt = $this->pdo->prepare("SELECT commandes.id, commandes.numero_commande, utilisateurs.nom, utilisateurs.prenom FROM commandes INNER JOIN utilisateurs ON commandes.utilisateur_id = utilisateurs.id");
+        $stmt->execute();
+        $resultats = [];
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $resultats[] = $row;
+        }
+        return $resultats;
+    }
+    
 }
 
 ?>
