@@ -5,6 +5,7 @@ namespace App;
 use App\Controller\AccueilController;
 use App\Controller\ContactController;
 use App\Controller\PostController;
+use App\Controller\CommandeController;
 
 final class Router
 {
@@ -14,12 +15,9 @@ final class Router
     {
         $this->addRoute('accueil', 'App\\Controller\\AccueilController');
         $this->addRoute('contact', 'App\\Controller\\PostController');
-        // Ajouter la route pour le formulaire de création de commande
-        $this->addRoute('commande_create', 'App\\Controller\\CommandeController');
-
-        // Ajouter la route pour la soumission de la création de commande
-        $this->addRoute('commande_store', 'App\\Controller\\CommandeController');
+        //$this->addRoute('commande', 'App\\Controller\\CommandeController');
     }
+
     public function addRoute(string $name, string $controller): void
     {
         $this->routes[$name] = $controller;

@@ -46,8 +46,7 @@ final class CommandeController extends BaseController
                 'numeroCommande' => $numeroCommande
             ]);
         } else {
-            // Si ce n'est pas une requête POST, renvoie vers la page d'accueil
-            echo $this->render('post/createaccueil.html.twig', []);
+            echo $this->render('post/commande.html.twig', []);
         }
     }
 

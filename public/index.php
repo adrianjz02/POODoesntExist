@@ -9,6 +9,7 @@ $router = new Router();
 // Ajouter des routes
 $router->addRoute('accueil', 'App\\Controller\\AccueilController');
 $router->addRoute('contact', 'App\\Controller\\PostController');
+$router->addRoute('commande', 'App\\Controller\\CommandeController');
 
 // Définir 'accueil' comme page par défaut si aucune page n'est spécifiée
 $page = $_GET['page'] ?? 'accueil';
