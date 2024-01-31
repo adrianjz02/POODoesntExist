@@ -6,12 +6,12 @@ use App\Router;
 
 $router = new Router();
 
-// Add routes
+// Ajouter des routes
 $router->addRoute('accueil', 'App\\Controller\\AccueilController');
 $router->addRoute('contact', 'App\\Controller\\PostController');
 
-// Default to 'accueil' if no page is set
+// Définir 'accueil' comme page par défaut si aucune page n'est spécifiée
 $page = $_GET['page'] ?? 'accueil';
 
-// Call matchRoute with the page and action
+// Appeler matchRoute avec la page et l'action
 $router->matchRoute($page, $_GET['action'] ?? null);

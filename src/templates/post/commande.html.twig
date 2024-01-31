@@ -1,0 +1,28 @@
+{# listeCommandes.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main>
+        <h2>Liste des Commandes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Commande</th>
+                    <th>Numéro de Commande</th>
+                    <th>Nom de l'Utilisateur</th>
+                    <th>Prénom de l'Utilisateur</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for commande in commandes %}
+                    <tr>
+                        <td>{{ commande.id }}</td>
+                        <td>{{ commande.numeroCommande }}</td>
+                        <td>{{ commande.nomUtilisateur }}</td> <!-- Assurez-vous que ces champs correspondent à ceux retournés par votre requête SQL -->
+                        <td>{{ commande.prenomUtilisateur }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+{% endblock %}
