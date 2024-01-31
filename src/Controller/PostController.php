@@ -20,10 +20,6 @@ require_once __DIR__ . '/../DataBase/UserRepositary.php';
 use App\Controller\BaseController;
 use Twig\Environment;
 
-//require 'dbconfig.php';
-//require 'User.php';
-//require 'UserRepository.php';
-
 final class PostController extends BaseController
 {
     public function list(): array
@@ -97,13 +93,66 @@ final class PostController extends BaseController
         echo $this->render('index.html.twig', []);
     }
 
-    public function update()
+    public function update($id)
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nom = htmlspecialchars($_POST['nom'] ?? '');
+            $email = htmlspecialchars($_POST['email'] ?? '');
+            $message = htmlspecialchars($_POST['message'] ?? '');
+            $ville = htmlspecialchars($_POST['ville'] ?? '');
+            $age = htmlspecialchars($_POST['age'] ?? '');
 
+            $dbConnection = new DataBaseConnection();
+            $connexion = $dbConnection->openConnection();
+            $userRepository = new UserRepository($connexion);
+
+            // Vérifiez si l'utilisateur existe en fonction de l'ID passé en paramètre
+            $existingUser = $userRepository->findByID($id);
+
+            if (!$existingUser) {
+                // L'utilisateur n'existe pas, vous pouvez afficher une erreur ou rediriger vers une autre page
+                echo "Utilisateur non trouvé.";
+            } else {
+                // Mettez à jour les données de l'utilisateur
+                $existingUser->setName($nom);
+                $existingUser->setEmail($email);
+                $existingUser->setMessage($message);
+                $existingUser->setCity($ville);
+                $existingUser->setAge($age);
+
+                // Utilisez UserRepository pour mettre à jour l'utilisateur
+                $userRepository->update($existingUser);
+
+                // Redirigez l'utilisateur vers la page de détail ou une autre page après la mise à jour
+                echo $this->render('index.html.twig', []);
+                exit();
+            }
+        } else {
+
+        }
     }
 
-    public function delete()
-    {
 
+    public function delete($id)
+    {
+        $dbConnection = new DataBaseConnection();
+        $connexion = $dbConnection->openConnection();
+        $userRepository = new UserRepository($connexion);
+
+        // Vérifiez si l'utilisateur existe en fonction de l'ID passé en paramètre
+        $existingUser = $userRepository->findByID($id);
+
+        if (!$existingUser) {
+            // L'utilisateur n'existe pas, vous pouvez afficher une erreur ou rediriger vers une autre page
+            echo "Utilisateur non trouvé.";
+        } else {
+            // Utilisez UserRepository pour supprimer l'utilisateur
+            $userRepository->delete($id);
+
+            // Redirigez l'utilisateur vers une page de confirmation ou une autre page après la suppression
+            echo $this->render('index.html.twig', []);
+            exit();
+        }
     }
+
 }
